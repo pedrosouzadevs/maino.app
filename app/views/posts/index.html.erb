@@ -1,0 +1,35 @@
+<div>
+  <div class="flex mb-5 mt-2 div_post ">
+    <%= link_to "New Post", new_post_path, class:"popup_post row gx-4 gx-lg-5 justify-content-center"%>
+  </div>
+  <div>
+    <%@posts.each do |post| %>
+      <div class=" container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Post preview-->
+                <div class="post-preview">
+                    <a href="<%= post_path(post)%>">
+                        <h2 class="post-title"><%= post.title %></h2>
+                        <% Tag.where(post_id: post.id).each do |tag| %>
+                          <span>#<%= tag.tag_name %></span>
+                        <% end %>
+                        <h3 class="post-subtitle"><%= post.content.slice(0,100) +"..." %></h3>
+                    </a>
+                    <p class="post-meta">
+                        Posted by <%= User.find(post.user_id).name %>
+                        on <%= post.created_at.strftime("%B %d, %Y") %>
+                    </p>
+                </div>
+                <!-- Divider-->
+                <hr class="my-4" />
+                <!-- Pager-->
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= paginate @posts %>
+  </div>
+</div>
