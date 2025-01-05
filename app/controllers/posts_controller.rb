@@ -7,11 +7,6 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order(updated_at: :desc).page(params[:page])
-    # if params[:query].present?
-    #   @posts = Post.find_by(params[:query]).page(params[:page])
-    # else
-    #   @posts = Post.all
-    # end
   end
 
   def show
@@ -73,7 +68,7 @@ class PostsController < ApplicationController
   end
 
   def verify_user
-      if current_user && current_user.id == Post.find(params[:id]).user_id
+    if current_user && current_user.id == Post.find(params[:id]).user_id
       @deletar_notificacao = true
     else
       @deletar_notificacao = false
