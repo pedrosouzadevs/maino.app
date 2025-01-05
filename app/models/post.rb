@@ -7,4 +7,13 @@ class Post < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :tags, dependent: :destroy
   belongs_to :user
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[title content]
+  end
+
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[user tags]
+  end
 end

@@ -1,6 +1,8 @@
 <div>
-  <div class="flex mb-5 mt-2 div_post ">
-    <%= link_to "New Post", new_post_path, class:"popup_post row gx-4 fs-4 gx-lg-5 justify-content-center"%>
+  <div class="flex mb-4 mt-5 div_post ">
+    <% if current_user != nil%>
+      <%= link_to "New Post", new_post_path, class:"popup_post row gx-4 fs-3 gx-lg-5 justify-content-center"%>
+    <% end %>
   </div>
   <div>
     <%@posts.each do |post| %>

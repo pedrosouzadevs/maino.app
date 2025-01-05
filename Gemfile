@@ -53,6 +53,7 @@ gem "sassc-rails"
 gem 'kaminari'
 gem 'faker'
 gem 'sidekiq'
+gem 'ransack'
 
 
 group :development, :test do

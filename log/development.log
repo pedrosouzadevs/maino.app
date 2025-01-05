@@ -623,7 +623,7 @@ Processing by Devise::PasswordsController#new as HTML
 Completed 500 Internal Server Error in 14ms (ActiveRecord: 2.5ms | Allocations: 7227)
 
 
-  
+
 ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <div class=" container px-4 mt-5 px-lg-5">
   <div class="row gx-4 gx-lg-5 justify-content-center">
     <div class="col-md-10 col-lg-8 col-xl-7">
@@ -656,14 +656,14 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
 5:            <h2>Forgot your password?</h2>
 6:          <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
 7:            <%= f.error_notification %>
-8:    
+8:
 9:            <div class="form-inputs">
 10:              <%= f.input :email,
 11:                          required: true,
 12:                          autofocus: true,
 13:                          input_html: { autocomplete: "email" } %>
 14:            </div>
-15:    
+15:
 16:            <div class="form-actions">
 17:              <%= f.button :submit, "Send me reset password instructions", class="btn btn-primary rounded text-uppercase my-1 center" %>
 18:            </div>
@@ -672,7 +672,7 @@ ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering te
 21:        </div>
 22:      </div>
 23:    </div>
-  
+
 app/views/devise/passwords/new.html.erb:17: syntax error, unexpected '='
 Started GET "/users/password/new" for 127.0.0.1 at 2025-01-03 17:18:39 -0300
 Processing by Devise::PasswordsController#new as HTML
@@ -1489,9 +1489,9 @@ Completed 200 OK in 54ms (Views: 29.6ms | ActiveRecord: 4.6ms | Allocations: 239
 
 
 Started GET "/users/password" for ::1 at 2025-01-03 17:26:18 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started GET "/users/edit" for ::1 at 2025-01-03 17:26:18 -0300
 Processing by Users::RegistrationsController#edit as HTML
   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
@@ -1850,13 +1850,13 @@ Completed 200 OK in 58ms (Views: 48.0ms | ActiveRecord: 3.6ms | Allocations: 438
 
 
 Started GET "/users/password" for ::1 at 2025-01-03 17:34:25 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started GET "/users/password" for ::1 at 2025-01-03 17:34:25 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started GET "/users/edit" for ::1 at 2025-01-03 17:34:58 -0300
 Processing by Users::RegistrationsController#edit as HTML
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
@@ -2073,9 +2073,9 @@ Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.6ms | Allocations: 172
 
 
 Started GET "/users/password" for ::1 at 2025-01-03 17:41:47 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started GET "/posts" for ::1 at 2025-01-03 17:41:52 -0300
 Processing by PostsController#index as HTML
   Rendering layout layouts/application.html.erb
@@ -2111,38 +2111,38 @@ Completed 200 OK in 34ms (Views: 31.4ms | ActiveRecord: 1.5ms | Allocations: 201
 
 
 Started GET "/users/password" for ::1 at 2025-01-03 17:42:17 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started GET "/users/password" for ::1 at 2025-01-03 17:42:18 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started GET "/users/password" for ::1 at 2025-01-03 17:42:20 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started GET "/users/password" for ::1 at 2025-01-03 17:42:20 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started PUT "/__web_console/repl_sessions/882343c832220e53d1838357419a576d" for ::1 at 2025-01-03 17:42:22 -0300
 Started PUT "/__web_console/repl_sessions/882343c832220e53d1838357419a576d" for ::1 at 2025-01-03 17:42:23 -0300
 Started PUT "/__web_console/repl_sessions/882343c832220e53d1838357419a576d" for ::1 at 2025-01-03 17:42:33 -0300
 Started PUT "/__web_console/repl_sessions/882343c832220e53d1838357419a576d" for ::1 at 2025-01-03 17:42:35 -0300
 Started GET "/users/password" for ::1 at 2025-01-03 17:42:53 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started PUT "/__web_console/repl_sessions/c7042bccdc2531fc919cc150775f75cb" for ::1 at 2025-01-03 17:42:55 -0300
 Started PUT "/__web_console/repl_sessions/c7042bccdc2531fc919cc150775f75cb" for ::1 at 2025-01-03 17:42:56 -0300
 Started PUT "/__web_console/repl_sessions/c7042bccdc2531fc919cc150775f75cb" for ::1 at 2025-01-03 17:42:58 -0300
 Started PUT "/__web_console/repl_sessions/c7042bccdc2531fc919cc150775f75cb" for ::1 at 2025-01-03 17:42:59 -0300
 Started PUT "/__web_console/repl_sessions/c7042bccdc2531fc919cc150775f75cb" for ::1 at 2025-01-03 17:43:06 -0300
 Started GET "/users/password" for ::1 at 2025-01-03 17:43:29 -0300
-  
+
 ActionController::RoutingError (No route matches [GET] "/users/password"):
-  
+
 Started GET "/posts" for ::1 at 2025-01-03 17:43:31 -0300
 Processing by PostsController#index as HTML
   Rendering layout layouts/application.html.erb
@@ -6392,9 +6392,9 @@ Processing by TagsController#create as TURBO_STREAM
 Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.0ms | Allocations: 5825)
 
 
-  
+
 RedisClient::CannotConnectError (Connection refused - connect(2) for 127.0.0.1:6379 (redis://127.0.0.1:6379)):
-  
+
 DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <top (required)> at /home/pdro/code/pedrosouzadevs/maino.app/config/environment.rb:5)
 Started GET "/posts/103" for ::1 at 2025-01-04 22:26:04 -0300
 Processing by PostsController#show as HTML
