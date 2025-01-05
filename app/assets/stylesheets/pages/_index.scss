@@ -1,2 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.shadowposts{
+  box-shadow: 0 .5em 1rem rgba($gray, .15);
+}
