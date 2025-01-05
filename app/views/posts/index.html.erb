@@ -1,12 +1,12 @@
 <div>
   <div class="flex mb-5 mt-2 div_post ">
-    <%= link_to "New Post", new_post_path, class:"popup_post row gx-4 gx-lg-5 justify-content-center"%>
+    <%= link_to "New Post", new_post_path, class:"popup_post row gx-4 fs-4 gx-lg-5 justify-content-center"%>
   </div>
   <div>
     <%@posts.each do |post| %>
-      <div class=" container px-4 px-lg-5">
+      <div class=" container px-4 my-3 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="col-md-10 col-lg-8 col-xl-7 shadowposts">
                 <!-- Post preview-->
                 <div class="post-preview">
                     <a href="<%= post_path(post)%>">
