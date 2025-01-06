@@ -3,13 +3,13 @@
     <div class="col-md-10 col-lg-8 col-xl-7">
       <!-- Post form -->
       <div class="post-preview">
-        <h2 class="text-center">Edit your post</h2>
+        <h2 class="text-center"><%=t'Edit_your_post'%></h2>
         <%= simple_form_for @post do |f| %>
-          <%= f.input :title, label: "Edit your title here" %>
-          <%= f.input :content, label: "Edit your content here" %>
+          <%= f.input :title, label: (t'Edit_your_title_here') %>
+          <%= f.input :content, label: (t'Edit_your_content_here') %>
           <div class="d-grid gap-2">
-            <%= f.button :submit, "Edit Post", class: "btn btn-primary" %>
-            <%= link_to "Cancel", :back, class: "btn btn-danger" %>
+            <%= f.button :submit, (t'Edit_post'), class: "btn btn-primary" %>
+            <%= link_to (t'Cancel'), post_path(@post), class: "btn btn-danger" %>
           </div>
         <% end %>
       </div>

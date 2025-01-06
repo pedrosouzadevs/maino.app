@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    if @deletar_notificacao
+    if @delete_notification
       Notification.where(post_id: @post.id, user_id: current_user.id).destroy_all
     end
   end
@@ -23,33 +23,27 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path, notice: t('flash.notice.post_create')
     else
       render posts_path, status: unprocessable_entity
     end
   end
 
   def create_txt
-    job_count = params["txt_files"].size
-    completed_jobs = 0
     params[:txt_files].each do |file|
       file_content = file.read
       lines = file_content.split("\n")
       title = lines.first.strip
-      completed_jobs += 1
-      content = lines[1..].join("\n").strip      # Cria um novo job para processar o arquivo de texto
+      content = lines[1..].join("\n").strip
       UploadJob.perform_async(title, content, current_user.id)
-      redirect_to posts_path if completed_jobs == job_count
     end
-  end
-
-  def create_tag
-
+    @times = params[:txt_files].size
+    redirect_to posts_path, notice: (t('Completed_jobs', times: @times))
   end
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      redirect_to @post, notice: t('flash.notice.post_update')
     else
       render :edit
     end
@@ -57,7 +51,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: "Post was successfully deleted."
+    redirect_to posts_path, notice: t('flash.notice.post_destroy')
   end
 
   private
@@ -69,9 +63,9 @@ class PostsController < ApplicationController
 
   def verify_user
     if current_user && current_user.id == Post.find(params[:id]).user_id
-      @deletar_notificacao = true
+      @delete_notification = true
     else
-      @deletar_notificacao = false
+      @delete_notification = false
     end
   end
 
