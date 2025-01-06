@@ -57,7 +57,8 @@ en:
       post_create: "Post was successfully created"
       post_update: "Post was successfully updated"
       comment_create: "Comment was successfully created"
-      tag_create: "%{times} Tags were successfully created"
+      tags_create: "%{times} Tags were successfully created"
+      tag_create: "A Tag was successfully created"
     alert:
       something_wrong: "Something went wrong"
   there_is_no_notifications: "There is no notifications"
@@ -83,6 +84,8 @@ en:
   Confirm_my_account: "Confirm my account"
   Resend_confirmation_instructions: "Resend confirmation instructions"
   Completed_jobs: "%{times} files processed successfully"
+  Completed_job: "A file was processed successfully"
+  Choose_files: "Choose files"
   time:
     formats:
       long: "%B %d, %Y"

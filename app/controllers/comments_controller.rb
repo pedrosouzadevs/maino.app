@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
       @notifications = Notification.create(user_id: @post.user_id, post_id: @post.id, comment_id: comment_id)
       redirect_to post_path(@post), notice: t('flash.notice.comment_create')
     else
-      render post_comments_path(@post), status: unprocessable_entity
+      redirect_to post_comments_path(@post), status: :unprocessable_entity
     end
   end
 

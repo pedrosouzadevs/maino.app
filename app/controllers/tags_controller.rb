@@ -8,16 +8,24 @@ class TagsController < ApplicationController
 
 
   def create
-    completed_jobs = 0
-    tag_names = params[:tag][:tag_name].split(' ')
-    job_count = tag_names.size
-    tag_names.each do |tag_name|
-      post_id = params[:post_id]
-      completed_jobs += 1
-      UploadtagJob.perform_async(tag_name, post_id)
+    if params[:tag][:tag_name].blank?
+      redirect_to post_path(params[:post_id]), status: :unprocessable_entity
+    else
+      completed_jobs = 0
+      tag_names = params[:tag][:tag_name].split(' ')
+      job_count = tag_names.size
+      tag_names.each do |tag_name|
+        post_id = params[:post_id]
+        completed_jobs += 1
+        UploadtagJob.perform_async(tag_name, post_id)
+      end
+      @times = tag_names.size
+      if @times == 1
+        redirect_to post_path(params[:post_id]), notice: t('flash.notice.tag_create') if completed_jobs == job_count
+      else
+        redirect_to post_path(params[:post_id]), notice: t('flash.notice.tags_create', times: @times) if completed_jobs == job_count
+      end
     end
-    @times = tag_names.size
-    redirect_to post_path(params[:post_id]), notice: t('flash.notice.tag_create', times: @times) if completed_jobs == job_count
   end
 
   private

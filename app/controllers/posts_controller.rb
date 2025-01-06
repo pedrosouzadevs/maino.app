@@ -23,22 +23,30 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to posts_path, notice: t('flash.notice.post_create')
+      redirect_to post_path(@post), notice: t('flash.notice.post_create')
     else
-      render posts_path, status: unprocessable_entity
+      redirect_to posts_path, status: :unprocessable_entity
     end
   end
 
   def create_txt
-    params[:txt_files].each do |file|
-      file_content = file.read
-      lines = file_content.split("\n")
-      title = lines.first.strip
-      content = lines[1..].join("\n").strip
-      UploadJob.perform_async(title, content, current_user.id)
+    if params[:txt_files].nil?
+      redirect_to posts_path, status: :unprocessable_entity
+    else
+      params[:txt_files].each do |file|
+        file_content = file.read
+        lines = file_content.split("\n")
+        title = lines.first.strip
+        content = lines[1..].join("\n").strip
+        UploadJob.perform_async(title, content, current_user.id)
+      end
+      @times = params[:txt_files].size
+      if @times == 1
+        redirect_to posts_path, notice: (t('Completed_job'))
+      else
+        redirect_to posts_path, notice: (t('Completed_jobs', times: @times))
+      end
     end
-    @times = params[:txt_files].size
-    redirect_to posts_path, notice: (t('Completed_jobs', times: @times))
   end
 
   def update

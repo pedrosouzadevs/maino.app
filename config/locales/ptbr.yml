@@ -57,7 +57,8 @@ ptbr:
       post_create: "Post foi criado com sucesso"
       post_update: "Post foi atualizado com sucesso"
       comment_create: "Comentário foi criado com sucesso"
-      tag_create: "Tags foram criadas com sucesso"
+      tags_create: "%{times} Tags foram criadas com sucesso"
+      tag_create: "A Tag foi criada com sucesso"
     alert:
       something_wrong: "Algo deu errado"
   there_is_no_notifications: "Não há notificações"
@@ -83,6 +84,8 @@ ptbr:
   Confirm_my_account: "Confirmar minha conta"
   Resend_confirmation_instructions: "Reenviar instruções de confirmação"
   Completed_jobs: "%{times} arquivos processados com sucesso"
+  Completed_job: "Um arquivo foi processado com sucesso"
+  Choose_files: "Escolher arquivos"
   date:
     month_names:
       - ""
