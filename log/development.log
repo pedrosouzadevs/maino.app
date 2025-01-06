@@ -38094,3 +38094,4 @@ Processing by PostsController#index as HTML
   Rendered shared/_flashes.html.erb (Duration: 0.1ms | Allocations: 21)
   Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 8764)
 Completed 200 OK in 19ms (Views: 16.5ms | ActiveRecord: 1.2ms | Allocations: 9154)
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <main> at /home/pdro/code/pedrosouzadevs/maino.app/config/environment.rb:5)
