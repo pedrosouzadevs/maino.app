@@ -1,14 +1,14 @@
-<div class="container px-4 px-lg-5">
+<div class="container px-4 mb-4 mt-5 px-lg-5">
   <div class="row gx-4 gx-lg-5 justify-content-center">
     <div class="col-md-10 col-lg-8 col-xl-7">
       <!-- Comment form -->
       <div class="post-preview">
-        <h2 class="text-center">Add a comment</h2>
+        <h2 class="text-center mb-5"><%=t'Add_a_comment'%></h2>
         <%= simple_form_for [@post, Comment.new] do |f| %>
-          <%= f.input :content, label: "Write your comment here:" %>
+          <%= f.input :content, label: (t'Write_your_comment_here') %>
           <div class="d-grid gap-2">
-            <%= f.button :submit, "Create Comment", class: "btn btn-primary" %>
-            <%= link_to "Cancel", :back, class: "btn btn-danger" %>
+            <%= f.button :submit, (t'Create_comment'), class: "btn btn-primary" %>
+            <%= link_to (t'Cancel'), post_path(@post), class: "btn btn-danger" %>
           </div>
         <% end %>
       </div>

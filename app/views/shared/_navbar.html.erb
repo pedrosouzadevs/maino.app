@@ -11,21 +11,49 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
+          <li class="nav-item active mx-2">
             <%= render "shared/notification" %>
           </li>
           <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+          <a href="#" class="avatar_square" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-square", alt: "dropdown menu" %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Edit User", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to (t"Edit_user_menu"), edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to (t'logout'), destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li>
+            <div class="mx-2 d-inline-flex">
+              <div class="mx-1">
+                <%= link_to url_for(locale: :en) do %>
+                  <%= image_tag "usa.png", alt: "English", class: "flag-icon", height:"39px", width:"39px" %>
+                <% end %>
+              </div>
+              <div class="mx-1">
+                <%= link_to url_for(locale: :ptbr) do %>
+                  <%= image_tag "brasil.png", alt: "Português", class: "flag-icon",height:"40px", width:"40px" %>
+                <% end %>
+              </div>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "btn btn-primary rounded text-uppercase" %>
+            <%= link_to (t'login'), new_user_session_path, class: "btn btn-primary rounded text-uppercase" %>
+          </li>
+          <li>
+            <div class="mx-2 d-inline-flex">
+              <div class="mx-1">
+                <%= link_to url_for(locale: :en) do %>
+                  <%= image_tag "usa.png", alt: "English", class: "flag-icon", height:"39px", width:"39px" %>
+                <% end %>
+              </div>
+              <div class="mx-1">
+                <%= link_to url_for(locale: :ptbr) do %>
+                  <%= image_tag "brasil.png", alt: "Português", class: "flag-icon",height:"40px", width:"40px" %>
+                <% end %>
+              </div>
+            </div>
           </li>
         <% end %>
       </ul>

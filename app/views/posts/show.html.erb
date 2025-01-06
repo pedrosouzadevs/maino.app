@@ -11,8 +11,7 @@
             <% end %>
           </p>
           <p class="post-meta">
-            Posted by <%= User.find(@post.user_id).name  %>
-            on <%= @post.created_at.strftime("%B %d, %Y") %>
+            <%= t('views.posts.posted_by', user: User.find(@post.user_id).name, date: l(@post.created_at, format: :long)) %>
           </p>
       </div>
       <!-- Divider-->
@@ -20,14 +19,14 @@
       <!-- Pager-->
       <% if current_user == nil || current_user.id != @post.user_id%>
         <div class="d-flex mb-5 mt-2 div_post justify-content-center">
-          <%= link_to "New Comment", new_post_comment_path(@post), class:"btn btn-primary rounded text-uppercase"%>
+          <%= link_to (t'New_comment'), new_post_comment_path(@post), class:"btn btn-primary rounded text-uppercase"%>
         </div>
       <% else %>
         <div class="d-flex mb-5 mt-2 div_post justify-content-between">
-          <%= link_to "Edit Post", edit_post_path(@post), class:"btn btn-primary rounded text-uppercase"%>
-          <%= link_to "New Comment", new_post_comment_path(@post), class:"btn btn-primary rounded text-uppercase"%>
-          <%= link_to "New Tag", new_post_tag_path(@post), class:"btn btn-primary rounded text-uppercase"%>
-          <%= link_to "Delete this Post", post_path(@post), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-primary rounded text-uppercase"%>
+          <%= link_to (t'Edit_post'), edit_post_path(@post), class:"btn btn-primary rounded text-uppercase"%>
+          <%= link_to (t'New_comment'), new_post_comment_path(@post), class:"btn btn-primary rounded text-uppercase"%>
+          <%= link_to (t'New_tag'), new_post_tag_path(@post), class:"btn btn-primary rounded text-uppercase"%>
+          <%= link_to (t'Delete_this_post'), post_path(@post), data: {turbo_method: :delete, turbo_confirm: t('Are_you_sure?')}, class:"btn btn-primary rounded text-uppercase"%>
         </div>
 
       <% end %>
@@ -36,14 +35,14 @@
           <div class="post-preview">
               <p>
                 <% if  comment.user_id == 0 || comment.user_id == nil%>
-                  <h4>Anonymous User</h4>
+                  <h4><%=t'Anonymous_user' %></h4>
                 <% else %>
                   <h4><%= User.find(comment.user_id).name %></h4>
                 <% end %>
                 <h5 class="post-title text-right my-4"><%= comment.content %></h5>
               </p>
               <p class="post-meta">
-                Created on <%= comment.created_at.strftime("%B %d, %Y") %>
+                <%= t('views.posts.created_by', user: User.find(comment.user_id).name, date: l(comment.created_at, format: :long)) %>
               </p>
           </div>
           <!-- Divider-->
@@ -52,7 +51,7 @@
       </div>
       <div class="d-flex justify-content-start mb-4">
         <a class="btn btn-primary text-uppercase" href="<%=posts_path%>">
-          ← Get back to Posts
+          <%=t'Get_back_to_posts'%>
         </a>
       </div>
     </div>

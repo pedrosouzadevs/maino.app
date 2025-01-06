@@ -27,7 +27,8 @@ module MainoApp
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
-    config.i18n.default_locale = :en
+    config.i18n.available_locales = %i[en ptbr]
+    config.i18n.default_locale = :ptbr
     config.time_zone = "Brasilia"
     config.active_job.queue_adapter = :sidekiq
     # ...

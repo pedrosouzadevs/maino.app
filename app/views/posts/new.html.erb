@@ -2,12 +2,12 @@
   <div class="row gx-4 gx-lg-5 justify-content-center">
     <div class="col-md-10 col-lg-8 col-xl-7">
       <div class="post-preview">
-        <h2 class="text-center">Add a post</h2>
+        <h2 class="text-center"><%=t'Add_a_post' %></h2>
         <%= simple_form_for Post.new do |f| %>
-          <%= f.input :title, label: "Post Title" %>
-          <%= f.input :content, label: "Post Content" %>
+          <%= f.input :title, label: (t'Post_title') %>
+          <%= f.input :content, label: (t'Post_content') %>
           <div class="d-grid gap-2">
-            <%= f.button :submit, "Create Post", class: "btn btn-primary" %>
+            <%= f.button :submit, (t'Post_create'), class: "btn btn-primary" %>
             <%= link_to "Cancel", :back, class: "btn btn-danger" %>
           </div>
         <% end %>
@@ -15,14 +15,14 @@
       <hr class="my-5">
       <div class="post-upload">
         <%= form_tag(create_txt_posts_path, multipart: true) do %>
-          <h2 class="text-center">Upload TXT Files</h2>
+          <h2 class="text-center"><%= t'Upload_txt_files'%></h2>
           <div class="mb-3">
             <label for="txt-files" class="form-label"></label>
             <input type="file" class="form-control" id="txt-files" name="txt_files[]" multiple>
           </div>
           <div class="d-grid gap-2">
-            <%= submit_tag "Create Posts", class: "btn btn-primary" %>
-            <%= link_to "Cancel", :back, class: "btn btn-danger" %>
+            <%= submit_tag (t'Post_create_txt'), class: "btn btn-primary" %>
+            <%= link_to (t'Cancel'), :back, class: "btn btn-danger" %>
           </div>
         <% end %>
       </div>

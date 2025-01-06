@@ -1,7 +1,7 @@
 <div>
   <div class="flex mb-4 mt-5 div_post ">
     <% if current_user != nil%>
-      <%= link_to "New Post", new_post_path, class:"popup_post row gx-4 fs-3 gx-lg-5 justify-content-center"%>
+      <%= link_to t('New_post'), new_post_path, class:"popup_post row gx-4 fs-3 gx-lg-5 justify-content-center"%>
     <% end %>
   </div>
   <div>
@@ -19,8 +19,7 @@
                         <h3 class="post-subtitle"><%= post.content.slice(0,100) +"..." %></h3>
                     </a>
                     <p class="post-meta">
-                        Posted by <%= User.find(post.user_id).name %>
-                        on <%= post.created_at.strftime("%B %d, %Y") %>
+                      <%= t('views.posts.posted_by', user: User.find(post.user_id).name, date: l(post.created_at, format: :long)) %>
                     </p>
                 </div>
                 <!-- Divider-->

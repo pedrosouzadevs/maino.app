@@ -54,6 +54,7 @@ gem 'kaminari'
 gem 'faker'
 gem 'sidekiq'
 gem 'ransack'
+gem 'i18n'
 
 
 group :development, :test do

@@ -47,6 +47,6 @@ puts "Creating 500 comments..."
   Comment.create!(
     post_id: rand(1..100),
     content: Faker::Lorem.sentence(word_count: 50),
-    user_id: rand(0..7)
+    user_id: rand(1..7)
   )
 end

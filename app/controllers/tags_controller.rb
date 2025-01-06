@@ -15,8 +15,9 @@ class TagsController < ApplicationController
       post_id = params[:post_id]
       completed_jobs += 1
       UploadtagJob.perform_async(tag_name, post_id)
-      redirect_to post_path(params[:post_id]) if completed_jobs == job_count
     end
+    @times = tag_names.size
+    redirect_to post_path(params[:post_id]), notice: t('flash.notice.tag_create', times: @times) if completed_jobs == job_count
   end
 
   private

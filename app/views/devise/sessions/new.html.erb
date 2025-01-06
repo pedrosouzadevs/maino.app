@@ -1,7 +1,7 @@
 <div class=" container px-4 mt-5 px-lg-5">
   <div class="row gx-4 gx-lg-5 justify-content-center">
     <div class="col-md-10 col-lg-8 col-xl-7">
-      <h2 class="my-4 text-center">Sign in</h2>
+      <h2 class="my-4 text-center"><%= t'sign_in'%></h2>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-inputs">
           <%= f.input :email,
@@ -10,11 +10,12 @@
                       input_html: { autocomplete: "email" } %>
           <%= f.input :password,
                       required: false,
+                      label: (t'password'),
                       input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <%= f.input :remember_me, label: (t'remember_me'), as: :boolean if devise_mapping.rememberable? %>
         </div>
         <div class="form-actions d-flex justify-content-center">
-          <%= f.button :submit, "Log in", class:"btn btn-primary rounded text-uppercase my-1 center" %>
+          <%= f.button :submit, (t"login"), class:"btn btn-primary rounded text-uppercase my-1 center" %>
         </div>
       <% end %>
 
