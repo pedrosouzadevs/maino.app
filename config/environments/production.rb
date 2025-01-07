@@ -73,6 +73,19 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "maino_app_production"
 
   config.action_mailer.perform_caching = false
+  Rails.application.configure do
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+      address: 'smtp.sendgrid.net',
+      port: 587,
+      domain: 'https://maino-app-58ff4c2d5bcd.herokuapp.com/"', # Insira o domínio real
+      user_name: 'apikey',        # Para usar a chave API
+      password: ENV['SENDGRID_API_KEY'], # Referência à variável de ambiente
+      authentication: :plain,
+      enable_starttls_auto: true
+    }
+    config.action_mailer.default_url_options = { host: "https://maino-app-58ff4c2d5bcd.herokuapp.com/" }
+  end
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

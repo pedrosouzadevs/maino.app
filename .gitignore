@@ -1,0 +1,27 @@
+# Arquivos de ambiente e configuração
+.env
+.env.local
+.env.production
+.env.test
+config/master.key
+config/credentials/*.key
+
+# Diretórios de logs e temporários
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Banco de dados local
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Diretórios do sistema
+.bundle
+/vendor/bundle
+/node_modules
+
+# Arquivos criados por IDEs
+*.swp
+.idea
+.vscode

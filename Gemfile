@@ -55,6 +55,8 @@ gem 'faker'
 gem 'sidekiq'
 gem 'ransack'
 gem 'i18n'
+gem 'sendgrid-ruby'
+gem 'dotenv-rails'
 
 
 group :development, :test do
