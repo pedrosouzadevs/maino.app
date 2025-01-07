@@ -42560,3 +42560,15 @@ Processing by CommentsController#new as HTML
 Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.7ms | Allocations: 8291)
 
 
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/sidekiq/uploadtag_job.rb:5:in `perform'
+  [1m[36mPost Load (2.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/sidekiq/uploadtag_job.rb:5:in `perform'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/sidekiq/uploadtag_job.rb:5:in `perform'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/sidekiq/uploadtag_job.rb:5:in `perform'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/sidekiq/uploadtag_job.rb:5:in `perform'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/sidekiq/uploadtag_job.rb:5:in `perform'
