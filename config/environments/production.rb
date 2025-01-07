@@ -72,6 +72,8 @@ Rails.application.configure do
   # config.active_job.queue_adapter = :resque
   # config.active_job.queue_name_prefix = "maino_app_production"
 
+  config.action_mailer.logger = Logger.new(STDOUT)
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
   Rails.application.configure do
     config.action_mailer.delivery_method = :smtp
